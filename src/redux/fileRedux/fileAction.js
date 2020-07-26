@@ -7,9 +7,14 @@ import {REQ_TO_UPLOAD_FILE,
         REQ_TO_DECRYPT,
         DECRYPT_SUCCESS,
         DECRYPT_FAILURE,
+        SWITCH_LANGUAGE
 } from './fileActionTypes';
 import crypto from 'crypto';
 
+export const switchLanguage = (lang) => ({
+  type: SWITCH_LANGUAGE,
+  lang: lang
+});
 export const requestToUploadFile = () => ({
   type: REQ_TO_UPLOAD_FILE
 });

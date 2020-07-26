@@ -50,12 +50,12 @@ const MainContent = (props) => {
   }
   return (
     <Container>
-      <div className="main-title">Cubbit encryptor</div>
+      <div className="main-title">{props.encrypted_lang ? 'U)tt{(2w"u&-$(#&' : "Cubbit encryptor" }</div>
       { (view === "") && 
           (
             <>
               <div className='main-description'>
-                Advanced online file encryption and decryption. Secure any file type and maintain your privacy!
+                {props.encrypted_lang ? 'Sv*s"uwv2#" {"w2x{ w2w"u&-$({#"2s"v2vwu&-$({#"@2ewu)&w2s"-2x{ w2(-$w2s"v2!s{"(s{"2-#)&2$&{*su-3' : "Advanced online file encryption and decryption. Secure any file type and maintain your privacy!"}
               </div>
               <div className='file-drop-area'>
                 <MyDropzone/>
@@ -149,7 +149,8 @@ const mapStateToProps = (state) => {
     loading: state.fileReducer.loading,
     encryption_key: state.fileReducer.key,
     decrypting: state.fileReducer.decrypting,
-    decrypted_file: state.fileReducer.decrypted_file
+    decrypted_file: state.fileReducer.decrypted_file,
+    encrypted_lang: state.fileReducer.encrypted_lang
   }
 }
 const mapDispatchToProps = (dispatch) => {

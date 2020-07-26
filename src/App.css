@@ -270,3 +270,28 @@ file-display-container {
   width: 100%;
   background-color: black;
 }
+.header .MuiTabs-root {
+  /*background-color: #009EFF;*/
+  display: block;
+  height: 20px;
+}
+.header .MuiTabs-flexContainer {
+  display: block;
+}
+.header .MuiTab-root {
+  margin-top: 2px;
+  margin-bottom: 2px;
+  margin-left: 2px;
+  margin-right: 5px;
+  background-color: black;
+  min-width: 100px;
+}
+.header .MuiTabs-fixes {
+  width: none;
+}
+.PrivateTabIndicator-root-1 {
+  display: none;
+}
+.lang-tab {
+  margin-top: 5px;
+}

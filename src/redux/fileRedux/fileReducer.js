@@ -7,16 +7,24 @@ import {REQ_TO_UPLOAD_FILE,
         REQ_TO_DECRYPT,
         DECRYPT_SUCCESS,
         DECRYPT_FAILURE,
+        SWITCH_LANGUAGE
 } from './fileActionTypes';
 
 const initialState = {
   file: null,
+  encrypted_lang: 0,
   loading: false,
   op: ""
 }
 
 const fileReducer = (state = initialState, action) => {
   switch(action.type) {
+    case SWITCH_LANGUAGE:
+      console.log(action.lang);
+      return {
+        ...state,
+        encrypted_lang: action.lang
+      };
     case REQ_TO_ENCRYPT:
       return {
         ...state,

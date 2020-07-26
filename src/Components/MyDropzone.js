@@ -85,13 +85,13 @@ const MyDropzone = (props) => {
                   <Grid item xs={2} md={5}/>
                   <Grid item xs={8} md={2} className='file-inp'>
                     <Grid container>
-                      <Grid item xs={3}>
+                      <Grid item xs={2}>
                         <img src={fileIcon}/>
                       </Grid>
-                      <Grid item xs={6}>
-                        Choose file!
+                      <Grid item xs={8}>
+                        {props.encrypted_lang ? "Uz##'w2x{ w3":" Choose file!"}
                       </Grid>
-                      <Grid item xs={3}>
+                      <Grid item xs={2}>
                         <img src={dropDown}/>
                       </Grid>
                     </Grid>
@@ -120,7 +120,8 @@ const mapStateToProps = (state) => {
   console.log(state);
   return {
     file: state.fileReducer.file,
-    loading: state.fileReducer.loading
+    loading: state.fileReducer.loading,
+    encrypted_lang: state.fileReducer.encrypted_lang
   }
 }
 const mapDispatchToProps = (dispatch) => {

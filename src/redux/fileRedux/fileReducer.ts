@@ -1,79 +1,88 @@
-import {REQ_TO_UPLOAD_FILE,
-        FILE_UPLOAD_SUCCESS,
-        FILE_UPLOAD_FAILURE,
-        REQ_TO_ENCRYPT,
-        ENCRYPT_SUCCESS,
-        ENCRYPT_FAILURE,
-        REQ_TO_DECRYPT,
-        DECRYPT_SUCCESS,
-        DECRYPT_FAILURE,
-        SWITCH_LANGUAGE
-} from './fileActionTypes';
+import {actionTypes} from './fileActionTypes';
+/*
+interface IState {
+  readonly file: File;
+  readonly loading: boolean;
+  readonly encrypted_lang: Number;
+  readonly key: String;
+  readonly error: String;
+  readonly decrypting: boolean;
+}
+*/
+interface IState {
+  file?: File|null,
+  encrypted_lang?: number,
+  loading?: boolean,
+  error?: string,
+  decrypted_file?: File|null,
+  decrypted?: boolean,
+  decryption_error?: string,
+  key?: string,
+}
 
-const initialState = {
+const initialState: IState = {
   file: null,
   encrypted_lang: 0,
   loading: false,
-  op: ""
 }
 
-const fileReducer = (state = initialState, action) => {
+const fileReducer = (state:IState = initialState, action) => {
   switch(action.type) {
-    case SWITCH_LANGUAGE:
+    case actionTypes.SWITCH_LANGUAGE:
       console.log(action.lang);
       return {
         ...state,
         encrypted_lang: action.lang
       };
-    case REQ_TO_ENCRYPT:
+    case actionTypes.REQ_TO_ENCRYPT:
       return {
         ...state,
         loading: true
       };
-    case ENCRYPT_SUCCESS:
+    case actionTypes.ENCRYPT_SUCCESS:
       return {
         ...state,
         file: action.file,
         key: action.key,
         loading: false
       };
-    case ENCRYPT_FAILURE:
+    case actionTypes.ENCRYPT_FAILURE:
       return {
         ...state,
         loading: false,
         error: "Encryption error"
       };
-    case REQ_TO_UPLOAD_FILE:
+    case actionTypes.REQ_TO_UPLOAD_FILE:
       return {
         ...state,
         loading: true
       };
-    case FILE_UPLOAD_SUCCESS:
+    case actionTypes.FILE_UPLOAD_SUCCESS:
       console.log('here');
       return {
         ...state,
         file: action.file,
         loading: false
       };
-    case FILE_UPLOAD_FAILURE:
+    case actionTypes.FILE_UPLOAD_FAILURE:
       return {
         ...state,
         loading: true,
         error: "Error uplaoding file"
       };
-    case REQ_TO_DECRYPT:
+    case actionTypes.REQ_TO_DECRYPT:
       return {
         ...state,
         decrypting: true,
       };
 
-    case DECRYPT_SUCCESS:
+    case actionTypes.DECRYPT_SUCCESS:
       return {
         ...state,
         decrypting: false,
         decrypted_file: action.decrypted_file
       }
-    case DECRYPT_FAILURE:
+    case actionTypes.DECRYPT_FAILURE:
       return {
         ...state,
         decrypting: false,

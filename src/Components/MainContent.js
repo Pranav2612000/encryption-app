@@ -106,7 +106,7 @@ const MainContent = (props) => {
                     }
                     <span style={{display: 'block', height: '10px'}}/>
                     {view === 'encrypt' &&
-                      <TextField id="key" fullWidth={true} disabled={true} value={props.key}/>
+                      <TextField id="key" fullWidth={true} disabled={true} value={props.encryption_key}/>
                     }
                     {view === 'decrypt' &&
                       <TextField id="key" fullWidth={true} value={key} onChange={e => setKey(e.target.value)} placeholder="Insert encryption key"/>
@@ -144,6 +144,7 @@ const mapStateToProps = (state) => {
   return {
     file: state.fileReducer.file,
     loading: state.fileReducer.loading,
+    encryption_key: state.fileReducer.key,
     decrypting: state.fileReducer.decrypting,
     decrypted_file: state.fileReducer.decrypted_file
   }

@@ -234,6 +234,11 @@ file-display-container {
   background-color: #292929;
 }
 
+.decrypt-container .MuiInputBase-input{
+  color: white;
+  background-color: #292929;
+}
+
 .decrypt-container .MuiButton-root {
   background-color: #FFA047;
   color: white;

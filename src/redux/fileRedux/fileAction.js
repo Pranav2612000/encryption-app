@@ -8,6 +8,7 @@ import {REQ_TO_UPLOAD_FILE,
         DECRYPT_SUCCESS,
         DECRYPT_FAILURE,
 } from './fileActionTypes';
+import crypto from 'crypto';
 
 export const requestToUploadFile = () => ({
   type: REQ_TO_UPLOAD_FILE
@@ -31,9 +32,10 @@ export const uploadFile = (file) => (dispatch) => {
 export const requestToEncrypt = () => ({
   type: REQ_TO_ENCRYPT
 });
-export const encryptSuccess = (file) => ({
+export const encryptSuccess = (file, key) => ({
   type: ENCRYPT_SUCCESS,
-  file: file
+  file: file,
+  key: key
 });
 export const encryptFailure = () => ({
   type: ENCRYPT_FAILURE
@@ -45,11 +47,18 @@ export const encryptFile = (file) => (dispatch) => {
   reader.onload = (e) => { 
     console.log(e);
     const data = e.target.result;
-    const key = "frontend"; // get random key
+    var key_bytes = crypto.randomBytes(32);//get random key
+    var key1 = [];
+    key_bytes.forEach((byte) => {
+      key1.push(scaleKeyBytes(byte));
+    });
+    const key = key1.join('');
+    //console.log(key1);
+    //var key = 'frontend'; 
     const encrypted_data = encrypt(data, key);
     //const encrypted_data = "hello world";
     const encrypted_file = new File([encrypted_data], "encrypted" + file.name, {type: "text/plain"});
-    dispatch(encryptSuccess(encrypted_file));
+    dispatch(encryptSuccess(encrypted_file, key));
     return e.target.result;
   }
   //function to encrypt
@@ -180,6 +189,11 @@ function shiftDownByN(val, n) {
   } else {
     return val;
   }
+}
+function scaleKeyBytes(val) {
+  var mod = val % 94;
+  console.log(String.fromCharCode(32 + mod));
+  return String.fromCharCode(32 + mod);
 }
 
 

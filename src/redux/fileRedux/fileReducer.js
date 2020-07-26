@@ -26,6 +26,7 @@ const fileReducer = (state = initialState, action) => {
       return {
         ...state,
         file: action.file,
+        key: action.key,
         loading: false
       };
     case ENCRYPT_FAILURE:

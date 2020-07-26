@@ -236,3 +236,12 @@ file-display-container {
   border-radius: 3px;
   font-size: 15px;
 }
+.header .MuiButton-root {
+  margin-top: 13px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: #FFA047;
+  color: white;
+  border-radius: 3px;
+  font-size: 15px;
+}

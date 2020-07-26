@@ -89,7 +89,7 @@ const MyDropzone = (props) => {
                         <img src={fileIcon}/>
                       </Grid>
                       <Grid item xs={6}>
-                        "Upload"
+                        Choose file!
                       </Grid>
                       <Grid item xs={3}>
                         <img src={dropDown}/>

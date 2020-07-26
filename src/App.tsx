@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './assets/LogoAndBrand.png';
 import './App.css';
-import {AppBar, Toolbar, ThemeProvider, Button, Grid, Tabs, Tab} from '@material-ui/core';
+import {AppBar, Container, Toolbar, ThemeProvider, Button, Grid, Tabs, Tab} from '@material-ui/core';
 import createMuiTheme, { ThemeOptions, Theme } from '@material-ui/core/styles/createMuiTheme';
 import { PaletteOptions } from '@material-ui/core/styles/createPalette';
 import MainContent from './Components/MainContent'
@@ -41,6 +41,17 @@ function App() {
           </AppBar>
         </ThemeProvider>
         <MainContent/>
+        <div className="footer">
+          <Container>
+            <Grid container>
+              <Grid item md={2}/>
+              <Grid item md={8}>
+          The whole is never the sum of the parts - it is greater or lesser, depending on how well the individuals work together
+              </Grid>
+              <Grid item md={2}/>
+            </Grid>
+          </Container>
+        </div>
       </div>
     </Provider>
   );

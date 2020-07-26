@@ -4,6 +4,10 @@
   color: white;
 }
 
+body {
+  background-color: black;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -244,4 +248,13 @@ file-display-container {
   color: white;
   border-radius: 3px;
   font-size: 15px;
+}
+.footer {
+  margin: auto;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  color: #98A0A6;
+  width: 100%;
+  background-color: black;
 }

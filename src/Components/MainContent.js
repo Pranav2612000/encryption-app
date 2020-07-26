@@ -47,11 +47,13 @@ const MainContent = (props) => {
   }
   return (
     <Container>
-      <div className="main-title"> Welcome</div>
+      <div className="main-title">Cubbit encryptor</div>
       { (view === "") && 
           (
             <>
-              <div className='main-description'>Some descriptive text </div>
+              <div className='main-description'>
+                Advanced online file encryption and decryption. Secure any file type and maintain your privacy!
+              </div>
               <div className='file-drop-area'>
                 <MyDropzone/>
               </div>
@@ -107,7 +109,7 @@ const MainContent = (props) => {
                       <TextField id="key" fullWidth={true} disabled={true} value={props.key}/>
                     }
                     {view === 'decrypt' &&
-                      <TextField id="key" fullWidth={true} value={key} onChange={e => setKey(e.target.value)}/>
+                      <TextField id="key" fullWidth={true} value={key} onChange={e => setKey(e.target.value)} placeholder="Insert encryption key"/>
                     }
                     <span style={{display: 'block', height: '30px'}}/>
                     {view === 'encrypt' &&

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;900&display=swap');
 .App {
   text-align: center;
   background-color: black;
@@ -6,6 +7,7 @@
 
 body {
   background-color: black;
+  font-family: Nunito;
 }
 
 .App-logo {
@@ -129,7 +131,6 @@ body {
   position: relative;
   top: 80px;
   text-align: center;
-  font-family: Arial;
   font-size: 20px;
 }
 
@@ -246,6 +247,7 @@ file-display-container {
   font-size: 15px;
 }
 .header .MuiButton-root {
+  font-family: Nunito;
   margin-top: 13px;
   padding-left: 20px;
   padding-right: 20px;
@@ -254,6 +256,11 @@ file-display-container {
   border-radius: 3px;
   font-size: 15px;
 }
+
+.MuiButton-label {
+  font-family: Nunito;
+}
+
 .footer {
   margin: auto;
   text-align: center;

@@ -26,6 +26,7 @@ const MainContent = (props) => {
       setView("decrypt");
     } else {
       console.log("Please chose a file");
+      alert("Please choose a file");
     }
   }
   const decryptFileHandler = (e) => {
@@ -34,6 +35,7 @@ const MainContent = (props) => {
       props.decryptFile(props.file, key);
     } else {
       console.log('Please enter a key');
+      alert("Please enter a key");
     }
   }
   const encryptButtonHandler = (e) => {
@@ -43,6 +45,7 @@ const MainContent = (props) => {
       setView("encrypt");
     } else {
       console.log("Please chose a file");
+      alert("Please choose a file");
     }
   }
   return (
@@ -59,8 +62,8 @@ const MainContent = (props) => {
               </div>
               <div className='button-area'>
                 <Grid container>
-                  <Grid item lg={4}/>
-                  <Grid item lg={4}>
+                  <Grid item xs={0}/>
+                  <Grid item xs={12}>
                     <Button className='light-btn' color='secondary' onClick={encryptButtonHandler}>
                       Encrypt
                     </Button>
@@ -68,7 +71,7 @@ const MainContent = (props) => {
                       Decrypt
                     </Button>
                   </Grid>
-                  <Grid item lg={4}/>
+                  <Grid item xs={0}/>
                 </Grid>
               </div>
             </>
@@ -78,8 +81,8 @@ const MainContent = (props) => {
           (
             <>
               <Grid container className='decrypt-container'>
-                <Grid item xs={3}/>
-                <Grid item xs={6}>
+                <Grid item xs={1} md={3}/>
+                <Grid item xs={10} md={6}>
                   <div className='file-area'>
                     <Grid container>
                       <Grid item xs={5}/>
@@ -90,11 +93,11 @@ const MainContent = (props) => {
                     </Grid>
                     <span style={{display: 'block', height: '20px'}}/>
                     <Grid container>
-                      <Grid item xs={5}/>
-                      <Grid item xs={2}>
+                      <Grid item xs={1} md={5}/>
+                      <Grid item xs={10} md={2}>
                         {props.file ? props.file.name : "example.txt"}
                       </Grid>
-                      <Grid item xs={5}/>
+                      <Grid item xs={1} md={5}/>
                     </Grid>
                   </div>
                   <div className='key-container'>
@@ -130,7 +133,7 @@ const MainContent = (props) => {
                     }
                   </div>
                 </Grid>
-                <Grid item xs={3}/>
+                <Grid item xs={1} md={3}/>
               </Grid>
               <span style={{display: 'block', height: '40px'}}/>
             </>

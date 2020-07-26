@@ -26,13 +26,13 @@ function App() {
         <ThemeProvider theme={theme}>
           <AppBar position = 'static' className="main-header" color='primary' >
             <Grid container className="header">
-              <Grid item xs={2}>
+              <Grid item xs={6} sm={3} md={2}>
                 <Toolbar>
                   <img src={logo} className="go" alt="logo" />
                 </Toolbar>
               </Grid>
-              <Grid item xs={8}/>
-              <Grid item xs={2}>
+              <Grid item xs={2} sm={6} md={8}/>
+              <Grid item xs={4} sm={3} md={2}>
                 <Button onClick={() => {window.location.reload()}}>
                   Home
                 </Button>

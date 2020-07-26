@@ -82,8 +82,8 @@ const MyDropzone = (props) => {
             (
               <>
                 <Grid container onClick={handleFileOpen} className='file-inp-container'>
-                  <Grid item md={5}/>
-                  <Grid item md={2} className='file-inp'>
+                  <Grid item xs={2} md={5}/>
+                  <Grid item xs={8} md={2} className='file-inp'>
                     <Grid container>
                       <Grid item xs={3}>
                         <img src={fileIcon}/>
@@ -96,7 +96,7 @@ const MyDropzone = (props) => {
                       </Grid>
                     </Grid>
                   </Grid>
-                  <Grid item md={5}/>
+                  <Grid item xs={2} md={5}/>
                 </Grid>
                 <div className="drop-message">
                   or drop files here
